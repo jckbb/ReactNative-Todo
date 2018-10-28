@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { View, TextInput } from 'react-native';
-import { withDefaultProps } from '../../utils/helpers';
 import styles from './styles';
 
 const defaultProps = {
@@ -9,8 +8,7 @@ const defaultProps = {
 
 type DefaultProps = typeof defaultProps;
 type Props = {
-  onChangeText: (text: string) => void
-
+  readonly onChangeText: (text: string) => void
 } & DefaultProps;
 
 class TextBox extends React.Component<Props> {
@@ -28,6 +26,4 @@ class TextBox extends React.Component<Props> {
   }
 }
 
-const TextBoxWithDefaultProps = withDefaultProps(defaultProps, TextBox);
-
-export default TextBoxWithDefaultProps;
+export default TextBox;
