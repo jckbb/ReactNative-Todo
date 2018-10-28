@@ -1,13 +1,16 @@
 import * as React from 'react';
-import Main from './containers/Main/index';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore'
+import Main from './screens/Main/index';
 
-type Props = {};
-type State = {};
+const store = configureStore();
 
-class App extends React.Component<Props, State> {
+class App extends React.Component {
   render() {
     return (
-      <Main />
+      <Provider store={store} >
+        <Main />
+      </Provider>
     );
   }
 }
