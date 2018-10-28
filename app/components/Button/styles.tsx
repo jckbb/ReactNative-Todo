@@ -1,4 +1,5 @@
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import * as color from '../../constant/colors';
 
 type Style = {
   container: ViewStyle,
@@ -8,7 +9,7 @@ type Style = {
 export default StyleSheet.create<Style>({
   container: {
     height: 55,
-    backgroundColor: '#10ac84',
+    backgroundColor: color.primaryColor,
     borderTopLeftRadius: 2,
     borderTopRightRadius: 2,
     borderBottomRightRadius: 12,
@@ -17,8 +18,8 @@ export default StyleSheet.create<Style>({
     alignItems: 'center'
   },
   text: {
-    fontSize: 30,
-    fontWeight: '500',
-    color: 'rgba(255, 255, 255, 0.8)'
+    fontSize: 40,
+    fontWeight: '600',
+    color: color.secondaryTextColor
   }
 });

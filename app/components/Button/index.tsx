@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { TouchableOpacity, Text, GestureResponderEvent } from 'react-native';
 import styles from './styles';
-import { withDefaultProps } from '../../utils/helpers';
 
 const defaultProps = {
 };
@@ -27,6 +26,4 @@ class Button extends React.Component<Props> {
   }
 }
 
-const ButtonWithDefaultProps = withDefaultProps(defaultProps, Button);
-
-export default ButtonWithDefaultProps;
+export default Button;
