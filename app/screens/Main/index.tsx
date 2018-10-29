@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View } from 'react-native';
 import styles from './styles';
 import Create from '../../containers/Create/index';
+import List from '../../containers/List/index';
 
 type Props = {};
 type State = {};
@@ -14,6 +15,7 @@ class Main extends React.Component<AllProps, State> {
     return(
       <View style={styles.container} >
         <Create />
+        <List />
       </View>
     );
   }
