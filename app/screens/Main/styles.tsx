@@ -8,6 +8,5 @@ export default StyleSheet.create<Style>({
   container: {
     flex: 1,
     marginTop: 30,
-    paddingHorizontal: 15
   }
 });
