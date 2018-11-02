@@ -8,6 +8,7 @@ type Style = {
 export default StyleSheet.create<Style>({
   container: {
     flex: 1,
+    paddingHorizontal: 10
   },
   titleTextBox: {
     lineHeight: 35,
