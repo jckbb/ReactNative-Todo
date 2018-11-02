@@ -8,17 +8,19 @@ import * as string from '../../constant/strings';
 import styles from './styles';
 import { ApplicationState } from '../../store';
 import { updateRequest, clearRequest } from './data/actions';
-import { Create } from './data/types'; 
+import { CreateState } from './data/types'; 
+import { createRequest } from '../../data/todo/actions';
+import { TodoState } from '../../data/todo/types';
 
 interface PropsFromState {
-  loading: boolean,
-  error?: string,
-  data: Create
+  create: CreateState,
+  todo: TodoState
 };
 
 interface PropsFromDispatch {
   updateRequest: typeof updateRequest,
-  clearRequest: typeof clearRequest
+  clearRequest: typeof clearRequest,
+  createRequest: typeof createRequest
 };
 
 type AllProps = PropsFromDispatch & PropsFromState;
@@ -29,11 +31,11 @@ class CreateForm extends React.Component<AllProps> {
   }
 
   submit() {
-    this.props.clearRequest();
+    this.props.createRequest(this.props.create.data.title);
   }
 
   render() {
-    const { title } = this.props.data;
+    const { title } = this.props.create.data;
 
     return(
       <View style={styles.container} >
@@ -47,15 +49,15 @@ class CreateForm extends React.Component<AllProps> {
   }
 }
 
-const mapStateToProps = ({ create }: ApplicationState) => ({
-  loading: create.loading,
-  error: create.error,
-  data: create.data
+const mapStateToProps = (state: ApplicationState) => ({
+  create: state.create,
+  todo: state.todo
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   updateRequest: (title: string) => dispatch(updateRequest(title)),
-  clearRequest: () => dispatch(clearRequest())
+  clearRequest: () => dispatch(clearRequest()),
+  createRequest: (title: string) => dispatch(createRequest(title))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateForm);
