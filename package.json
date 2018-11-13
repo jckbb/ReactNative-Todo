@@ -8,13 +8,15 @@
     "lint": "tslint -p \".\" -t stylish"
   },
   "dependencies": {
+    "@types/uuid": "^3.4.4",
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.3",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.2",
-    "typesafe-actions": "^2.0.4"
+    "typesafe-actions": "^2.0.4",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/redux-logger": "^3.0.6",
