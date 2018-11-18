@@ -10,18 +10,12 @@ class Storage {
       });
   }
 
-  async setItem(data: Todo): Promise<Todo> {
-    return await AsyncStorage.setItem(`@Todo/${data.id}`, JSON.stringify(data))
-      .then(() => {
-        return data;
-      });
+  async setItem(data: Todo): Promise<void> {
+    await AsyncStorage.setItem(`@Todo/${data.id}`, JSON.stringify(data));
   }
 
-  async deleteItem(id: string): Promise<string> {
-    return await AsyncStorage.removeItem(`@Todo/${id}`)
-      .then(() => {
-        return id;
-      });
+  async deleteItem(id: string): Promise<void> {
+    await AsyncStorage.removeItem(`@Todo/${id}`);
   }
 
   async getAllItems(): Promise<Todo[]> {
@@ -30,10 +24,11 @@ class Storage {
         const fetchkeys = keys.filter((key) => {
           return key.startsWith('@Todo/');
         });
-
+        
         return AsyncStorage.multiGet(fetchkeys);
       }).then((result) => {
         return result.map((response) => {
+          console.log(response);
           return JSON.parse(response[1]);
         });
       });

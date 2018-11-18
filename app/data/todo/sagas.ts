@@ -4,19 +4,18 @@ import { updateRequest, updateSuccess, createSuccess, deleteRequest, createReque
 import Storage from '../../storage/index';
 import { generateUUID } from '../../utils/uuid';
 
-function* createWorker(action: ReturnType<typeof createRequest>) {
+function* createWorker({ payload }: ReturnType<typeof createRequest>) {
   const currentTime = Date.now();
   const todo: Todo = {
     id: generateUUID(),
     createdAt: currentTime,
     updatedAt: currentTime,
-    title: action.payload,
+    title: payload,
     allTaskIds: []
   };
-
-  const result = yield Storage.getItem(todo.id);
   
-  yield put(createSuccess(result));
+  yield Storage.getItem(todo.id);
+  yield put(createSuccess(todo));
 }
 
 function* fetchAllWorker() {
@@ -27,16 +26,14 @@ function* fetchAllWorker() {
   }
 }
 
-function* deleteWorker(action: ReturnType<typeof deleteRequest>) {
-  const result = yield Storage.deleteItem(action.payload);
-
-  yield put(deleteSuccess(result));
+function* deleteWorker({ payload }: ReturnType<typeof deleteRequest>) {
+  yield Storage.deleteItem(payload);
+  yield put(deleteSuccess(payload));
 }
 
-function* updateWorker(action: ReturnType<typeof updateRequest>) {
-  const result = yield Storage.setItem(action.payload);
-
-  yield put(updateSuccess(result));
+function* updateWorker({ payload }: ReturnType<typeof updateRequest>) {
+  yield Storage.setItem(payload);
+  yield put(updateSuccess(payload));
 }
 
 function* createWatcher() {
@@ -55,10 +52,15 @@ function* updateWatcher() {
   yield takeEvery(TodoActionTypes.UPDATE_REQUEST, updateWorker);
 }
 
+function* fetchAllWatcher() {
+  yield takeEvery(TodoActionTypes.FETCH_ALL_REQUEST, fetchAllWorker);
+}
+
 export default function* todoSagas() {
   yield all([
     fork(createWatcher),
     fork(fetchWatcher),
+    fork(fetchAllWatcher),
     fork(deleteWatcher),
     fork(updateWatcher)
   ]);
