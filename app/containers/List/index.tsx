@@ -4,34 +4,34 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { ApplicationState } from '../../store';
 import { Todo } from '../../data/todo/types';
-import { fetchRequest } from '../../data/todo/actions';
+import { fetchAllRequest } from '../../data/todo/actions';
 import styles from './styles';
 import Item from './components/Item/index';
 
 interface PropsFromDispatch {
-  fetchRequest: typeof fetchRequest
+  fetchAllRequest: typeof fetchAllRequest
 };
 
 interface PropsFromState {
   loading: boolean,
   error?: string,
-  data: Todo[]
+  allIds: string[]
 };
 
 type AllProps = PropsFromDispatch & PropsFromState;
 
 class List extends React.Component<AllProps> {
   componentDidMount() {
-    this.props.fetchRequest();
+    this.props.fetchAllRequest();
   }
 
-  renderItem(info: ListRenderItemInfo<Todo>) {
+  renderItem({ item }: ListRenderItemInfo<string>) {
     return(
-      <Item data={info.item} />
+      <Item id={item} />
     );
   }
 
-  keyExtractor(item: Todo, index: number) {
+  keyExtractor(item: string, index: number) {
     return index.toString();
   }
 
@@ -40,13 +40,13 @@ class List extends React.Component<AllProps> {
   }
 
   render() {
-    const { data } = this.props;
+    const { allIds } = this.props;
 
     return(
       <View style={styles.container} >
         <FlatList
           style={styles.list}
-          data={data}
+          data={allIds}
           renderItem={this.renderItem}
           keyExtractor={this.keyExtractor}
           ItemSeparatorComponent={this.itemSeparatorComponent}
@@ -57,13 +57,14 @@ class List extends React.Component<AllProps> {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchRequest: () => dispatch(fetchRequest()) 
+  fetchAllRequest: () => dispatch(fetchAllRequest())
 });
 
 const mapStateToProps = ({ todo }: ApplicationState) => ({
   loading: todo.loading,
-  data: todo.data,
-  error: todo.error
+  error: todo.error,
+  byId: todo.byId,
+  allIds: todo.allIds
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

@@ -28,7 +28,6 @@ class Storage {
         return AsyncStorage.multiGet(fetchkeys);
       }).then((result) => {
         return result.map((response) => {
-          console.log(response);
           return JSON.parse(response[1]);
         });
       });
