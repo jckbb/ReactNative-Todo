@@ -1,6 +1,14 @@
 import { all, takeEvery, fork, put } from 'redux-saga/effects';
 import { TodoActionTypes, Todo } from './types';
-import { updateRequest, updateSuccess, createSuccess, deleteRequest, createRequest, fetchSuccess, deleteSuccess } from './actions';
+import { 
+  updateRequest, 
+  updateSuccess, 
+  createSuccess, 
+  deleteRequest, 
+  createRequest, 
+  fetchSuccess, 
+  deleteSuccess 
+} from './actions';
 import Storage from '../../storage/index';
 import { generateUUID } from '../../utils/uuid';
 
@@ -20,7 +28,7 @@ function* createWorker({ payload }: ReturnType<typeof createRequest>) {
 
 function* fetchAllWorker() {
   const results = yield Storage.getAllItems();
-
+  
   for(var result of results) {
     yield put(fetchSuccess(result));
   }
