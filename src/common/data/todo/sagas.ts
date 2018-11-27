@@ -21,7 +21,7 @@ function* createWorker({ payload }: ReturnType<typeof createRequest>) {
     title: payload,
     allTaskIds: []
   };
-  
+
   yield Storage.getItem(todo.id);
   yield put(createSuccess(todo));
 }

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { todoReducer } from '../data/todo/reducer';
-import { createReducer } from '../containers/CreateForm/data/reducer';
+import { createReducer } from '../../screens/Main/CreateForm/data/reducer';
 import { ApplicationState } from '.';
 
 export default combineReducers<ApplicationState>({

@@ -2,15 +2,15 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
-import Button from '../../components/Button/index';
-import TextBox from '../../components/TextBox/index';
-import * as string from '../../constant/strings';
+import Button from 'common/components/Button/index';
+import TextBox from 'common/components/TextBox/index';
+import * as string from 'res/strings';
 import styles from './styles';
-import { ApplicationState } from '../../store';
+import { ApplicationState } from 'common/store';
 import { updateRequest, clearRequest } from './data/actions';
 import { CreateState } from './data/types'; 
-import { createRequest } from '../../data/todo/actions';
-import { TodoState } from '../../data/todo/types';
+import { createRequest } from 'common/data/todo/actions';
+import { TodoState } from 'common/data/todo/types';
 
 interface PropsFromState {
   create: CreateState,

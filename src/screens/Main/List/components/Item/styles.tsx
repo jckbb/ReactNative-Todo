@@ -1,5 +1,5 @@
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
-import { cornerRadius } from '../../../../constant/theme';
+import { cornerRadius } from 'res/theme';
 
 type Style = {
   container: ViewStyle,

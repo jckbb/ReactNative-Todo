@@ -1,5 +1,5 @@
 import { TodoState } from '../data/todo/types';
-import { CreateState } from '../containers/CreateForm/data/types';
+import { CreateState } from '../../screens/Main/CreateForm/data/types';
 import { Dispatch, Action, AnyAction } from 'redux';
 
 export interface ApplicationState {
