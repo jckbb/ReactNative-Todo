@@ -2,11 +2,10 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './styles';
-import { makeGetTodoById } from '../../../../data/todo/selectors';
-import { ApplicationState } from '../../../../store';
-import { Todo } from '../../../../data/todo/types';
+import { makeGetTodoById } from 'common/data/todo/selectors';
+import { ApplicationState } from 'common/store';
+import { Todo } from 'common/data/todo/types';
 
-type State = {};
 type Props = {
   id: string
 };
@@ -17,7 +16,7 @@ type PropsFromState = {
 
 type AllProps = Props & PropsFromState & PropsFromDisaptch;
 
-class Item extends React.Component<AllProps, State> {
+class Item extends React.Component<AllProps> {
   render() {
     const { title } = this.props.todo;
     return(

@@ -2,9 +2,8 @@ import React from 'react';
 import { View, FlatList, ListRenderItemInfo } from 'react-native';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { ApplicationState } from '../../store';
-import { Todo } from '../../data/todo/types';
-import { fetchAllRequest } from '../../data/todo/actions';
+import { ApplicationState } from 'common/store';
+import { fetchAllRequest } from 'common/data/todo/actions';
 import styles from './styles';
 import Item from './components/Item/index';
 

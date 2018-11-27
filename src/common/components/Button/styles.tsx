@@ -1,5 +1,5 @@
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
-import * as color from '../../constant/colors';
+import * as color from 'res/colors';
 
 type Style = {
   container: ViewStyle,
