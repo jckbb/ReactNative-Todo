@@ -22,7 +22,7 @@ function* createWorker({ payload }: ReturnType<typeof createRequest>) {
     allTaskIds: []
   };
 
-  yield Storage.getItem(todo.id);
+  yield Storage.setItem(todo);
   yield put(createSuccess(todo));
 }
 
