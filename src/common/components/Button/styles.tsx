@@ -8,12 +8,13 @@ type Style = {
 
 export default StyleSheet.create<Style>({
   container: {
+    flex: 1,
     height: 55,
     backgroundColor: color.primaryColor,
     borderTopLeftRadius: 2,
-    borderTopRightRadius: 2,
+    borderTopRightRadius: 12,
     borderBottomRightRadius: 12,
-    borderBottomLeftRadius: 12,
+    borderBottomLeftRadius: 2,
     justifyContent: 'center',
     alignItems: 'center'
   },
