@@ -1,2 +1,8 @@
-export const addTodoButtonText = 'add';
-export const createTodoPlaceholder = 'title';
+export const createStrings = {
+  headerText: 'create todo'
+}
+
+export const createFormStrings = {
+  createButtonText: 'add',
+  createTextBoxPlaceholderText: 'title'
+};

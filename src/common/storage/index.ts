@@ -24,7 +24,7 @@ class Storage {
         const fetchkeys = keys.filter((key) => {
           return key.startsWith('@Todo/');
         });
-        
+
         return AsyncStorage.multiGet(fetchkeys);
       }).then((result) => {
         return result.map((response) => {
