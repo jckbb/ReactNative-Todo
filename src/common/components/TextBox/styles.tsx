@@ -7,15 +7,15 @@ type Style = {
 
 export default StyleSheet.create<Style>({
   container: {
-    marginVertical: 15,
+    flex: 1,
     height: 55,
     paddingLeft: 12,
     justifyContent: 'center',
     alignItems: 'flex-start',
     borderTopLeftRadius: 12,
-    borderTopRightRadius: 12,
+    borderTopRightRadius: 2,
     borderBottomRightRadius: 2,
-    borderBottomLeftRadius: 2,
+    borderBottomLeftRadius: 12,
     backgroundColor: 'rgba(0, 0, 0, 0.1)'
   },
   textBox: {

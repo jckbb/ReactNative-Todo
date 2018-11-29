@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, TextInput } from 'react-native';
+import { View, TextInput, RegisteredStyle, ViewStyle } from 'react-native';
 import styles from './styles';
 
 const defaultProps = {
@@ -10,6 +10,7 @@ type DefaultProps = typeof defaultProps;
 type Props = {
   readonly handleTextChange: (text: string) => void,
   readonly value: string
+  readonly styling: RegisteredStyle<ViewStyle>
 } & DefaultProps;
 
 class TextBox extends React.Component<Props> {
@@ -18,10 +19,10 @@ class TextBox extends React.Component<Props> {
   }
 
   render() {
-    const { placeholder, value } = this.props;
+    const { placeholder, value, styling } = this.props;
 
     return(
-      <View style={styles.container} >
+      <View style={[styles.container, styling]} >
         <TextInput
           style={styles.textBox}
           value={value}
