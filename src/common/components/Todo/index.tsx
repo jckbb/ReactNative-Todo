@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 import { ApplicationState } from 'common/store';
 import { makeGetTodoById } from 'common/data/todo/selectors';
 import { Todo as TodoDataModel } from 'common/data/todo/types';
+import { Dispatch } from 'redux';
+import { updateRequest } from 'common/data/todo/actions';
 
 interface InjectedProps {
-  data: TodoDataModel
+  data: TodoDataModel,
+  handleCompleteChange(): void
 };
 
 interface Props {
@@ -13,16 +16,25 @@ interface Props {
   children(props: InjectedProps): JSX.Element
 }
 
+interface PropsFromDispatch {
+  updateRequest: typeof updateRequest
+};
+
 interface PropsFromState {
   todo: TodoDataModel
 };
 
-type AllProps = Props & PropsFromState;
+type AllProps = Props & PropsFromState & PropsFromDispatch;
 
 class Todo extends React.Component<AllProps> {
+  updateComplete() {
+    this.props.updateRequest(this.props.todo);
+  }
+
   render() {
     return this.props.children({
-      data: this.props.todo
+      data: this.props.todo,
+      handleCompleteChange: this.updateComplete.bind(this)
     });
   }
 }
@@ -37,5 +49,8 @@ const makeMapStateToProps = () => {
   }
 }
 
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  updateRequest: (todo: TodoDataModel) => dispatch(updateRequest(todo))
+});
 
-export default connect(makeMapStateToProps)(Todo);
+export default connect(makeMapStateToProps, mapDispatchToProps)(Todo);
