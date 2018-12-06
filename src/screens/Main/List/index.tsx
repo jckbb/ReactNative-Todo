@@ -27,7 +27,7 @@ class TodoList extends React.Component<Props> {
     return(
       <TodoCollection>
         {(injectedProps) => 
-          <View style={styles.container} >
+          <View style={styles.listContainer} >
             <FlatList
               data={injectedProps.data}
               renderItem={this.renderItem}
