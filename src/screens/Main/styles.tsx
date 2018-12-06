@@ -1,6 +1,6 @@
 import { StyleSheet, ViewStyle } from 'react-native';
 
-type Style = {
+interface Style {
   container: ViewStyle,
 };
 
