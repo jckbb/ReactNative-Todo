@@ -3,7 +3,7 @@ export interface Todo extends ApiResponse {
   createdAt: number,
   updatedAt: number,
   title: string,
-  allTaskIds: string[]
+  complete: boolean
 }
 
 export type ApiResponse = Record<string, any>;

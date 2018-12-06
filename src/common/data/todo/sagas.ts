@@ -19,7 +19,7 @@ function* createWorker({ payload }: ReturnType<typeof createRequest>) {
     createdAt: currentTime,
     updatedAt: currentTime,
     title: payload,
-    allTaskIds: []
+    complete: false
   };
 
   yield Storage.setItem(todo);
