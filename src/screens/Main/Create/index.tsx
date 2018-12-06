@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import styles from './styles';
 import { createStrings as string } from 'res/strings';
 import Header from 'common/components/Header';
 import { connect } from 'react-redux';
@@ -17,7 +16,7 @@ type AllProps = PropsFromDispatch;
 class Create extends React.Component<AllProps> {
   render() {
     return(
-      <View style={styles.createContainer} >
+      <View >
         <Header>
           {string.headerText}
         </Header>
