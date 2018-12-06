@@ -36,11 +36,10 @@ const reducer: Reducer<TodoState> = (state = initialState, action) => {
         byId: byIdData
       };
       case TodoActionTypes.UPDATE_SUCCESS:
-        const {[action.payload]: {}, ...byIdRemaining} = state.byId;
         return {
           ...state,
           loading: false,
-          byId: {...byIdRemaining, [action.payload.id]: action.payload}
+          byId: {...state.byId, [action.payload.id]: action.payload}
         }
     default:
       return state;
