@@ -40,8 +40,17 @@ function* deleteWorker({ payload }: ReturnType<typeof deleteRequest>) {
 }
 
 function* updateWorker({ payload }: ReturnType<typeof updateRequest>) {
-  yield Storage.setItem(payload);
-  yield put(updateSuccess(payload));
+  const currentTime = Date.now();
+  const newTodo = {
+    id: payload.id,
+    createdAt: payload.createdAt,
+    updatedAt: currentTime,
+    title: payload.title,
+    complete: !payload.complete
+  };
+
+  yield Storage.setItem(newTodo);
+  yield put(updateSuccess(newTodo));
 }
 
 function* createWatcher() {
