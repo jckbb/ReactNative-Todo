@@ -1,4 +1,5 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { primaryContainerColor } from 'res/colors';
 
 type Style = {
   container: ViewStyle,
@@ -16,7 +17,7 @@ export default StyleSheet.create<Style>({
     borderTopRightRadius: 2,
     borderBottomRightRadius: 2,
     borderBottomLeftRadius: 12,
-    backgroundColor: 'rgba(0, 0, 0, 0.1)'
+    backgroundColor: primaryContainerColor
   },
   textBox: {
     lineHeight: 35,
