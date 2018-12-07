@@ -15,7 +15,7 @@ class TodoItem extends React.Component<Props> {
         {(injectedProp) => 
           <View style={styles.container} >
             <RadioButton
-              complete={injectedProp.data.complete} // TODO injectedProp.data.complete
+              complete={injectedProp.data.complete}
               handleCompleteChange={injectedProp.handleCompleteChange}
             >
               {injectedProp.data.title}
