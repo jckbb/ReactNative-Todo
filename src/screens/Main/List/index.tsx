@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList, ListRenderItemInfo } from 'react-native';
 import styles from './styles';
-import Item from './components/Item/index';
+import TodoItem from './components/Item/index';
 import TodoCollection from 'common/components/Todos';
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 class TodoList extends React.Component<Props> {
   renderItem({ item }: ListRenderItemInfo<string>) {
     return(
-      <Item id={item} />
+      <TodoItem id={item} />
     );
   }
 

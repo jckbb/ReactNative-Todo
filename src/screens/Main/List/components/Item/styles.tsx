@@ -1,23 +1,16 @@
-import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
+import { StyleSheet, ViewStyle } from 'react-native';
 import { cornerRadius } from 'res/theme';
 
 type Style = {
-  container: ViewStyle,
-  title: TextStyle
+  container: ViewStyle
 };
 
 export default StyleSheet.create<Style>({
   container: {
     height: 55,
-    width: '100%',
-    paddingHorizontal: 10,
     justifyContent: 'center',
     alignItems: 'flex-start',
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
     borderRadius: cornerRadius,
   },
-  title: {
-    fontSize: 30,
-    fontWeight: '500'
-  }
 });
