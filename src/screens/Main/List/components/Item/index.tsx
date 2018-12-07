@@ -12,16 +12,18 @@ class TodoItem extends React.Component<Props> {
   render() {
     return(
       <Todo id={this.props.id} >
-        {(injectedProp) => 
-          <View style={styles.container} >
+        {(injectedProp) => {
+          const backgroundStyling = injectedProp.data.complete ? styles.completedContainer: styles.todoContainer;
+          return(
+          <View style={[styles.container, backgroundStyling]} >
             <RadioButton
               complete={injectedProp.data.complete}
               handleCompleteChange={injectedProp.handleCompleteChange}
             >
               {injectedProp.data.title}
             </RadioButton>
-          </View>
-        }
+          </View>);
+        }}
       </Todo>
     );
   }
