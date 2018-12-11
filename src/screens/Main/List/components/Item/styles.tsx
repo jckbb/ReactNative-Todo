@@ -1,11 +1,8 @@
 import { StyleSheet, ViewStyle } from 'react-native';
-import { cornerRadius, todoList } from 'res/theme';
-import { primaryContainerColor, primaryHighlightColor } from 'res/colors';
+import { todoList } from 'res/theme';
 
 type Style = {
-  container: ViewStyle,
-  todoContainer: ViewStyle,
-  completedContainer: ViewStyle
+  container: ViewStyle
 };
 
 export default StyleSheet.create<Style>({
@@ -14,12 +11,5 @@ export default StyleSheet.create<Style>({
     paddingHorizontal: 5,
     justifyContent: 'center',
     alignItems: 'flex-start',
-    borderRadius: cornerRadius,
-  },
-  todoContainer: {
-    backgroundColor: primaryContainerColor,
-  },
-  completedContainer: {
-    backgroundColor: primaryHighlightColor,
   }
 });
