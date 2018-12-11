@@ -1,18 +1,29 @@
 import React from 'react';
-import { View, FlatList, ListRenderItemInfo } from 'react-native';
+import { View, FlatList, ListRenderItemInfo, Dimensions } from 'react-native';
 import styles from './styles';
 import TodoItem from './components/Item/index';
 import TodoCollection from 'common/components/Todos';
+import { todoList } from 'res/theme';
 
-interface Props {
+const height = Dimensions.get('window').height;
 
-};
+interface Props {};
 
 class TodoList extends React.Component<Props> {
   renderItem({ item }: ListRenderItemInfo<string>) {
     return(
       <TodoItem id={item} />
     );
+  }
+
+  listShouldScroll(itemCount: number) {
+    const result = height / (todoList.componentSeparatorHeight + todoList.itemHeight)
+    let scroll = false;
+
+    if(itemCount >= result) 
+      scroll = true;
+      
+    return scroll;
   }
 
   keyExtractor(item: string, index: number) {
@@ -33,6 +44,7 @@ class TodoList extends React.Component<Props> {
               renderItem={this.renderItem}
               keyExtractor={this.keyExtractor}
               ItemSeparatorComponent={this.itemSeparatorComponent}
+              scrollEnabled={this.listShouldScroll(injectedProps.data.length)}
             />
           </View>
         }
