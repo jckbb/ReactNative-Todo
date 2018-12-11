@@ -1,5 +1,5 @@
 import { StyleSheet, ViewStyle } from 'react-native';
-import { cornerRadius } from 'res/theme';
+import { cornerRadius, todoList } from 'res/theme';
 import { primaryContainerColor, primaryHighlightColor } from 'res/colors';
 
 type Style = {
@@ -10,7 +10,7 @@ type Style = {
 
 export default StyleSheet.create<Style>({
   container: {
-    height: 55,
+    height: todoList.itemHeight,
     paddingHorizontal: 5,
     justifyContent: 'center',
     alignItems: 'flex-start',

@@ -1,5 +1,7 @@
 import { StyleSheet, ViewStyle } from 'react-native';
 
+const dividerHeight = 5;
+
 type Style = {
   listContainer: ViewStyle,
   divider: ViewStyle
@@ -8,8 +10,10 @@ type Style = {
 export default StyleSheet.create<Style>({
   listContainer: {
     flex: 1,
+    paddingTop: dividerHeight,
+    paddingBottom: dividerHeight
   },
   divider: {
-    height: 5
+    height: dividerHeight
   }
 });
