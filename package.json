@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@types/uuid": "^3.4.4",
+    "final-form": "^4.11.0",
     "react": "16.6.0-alpha.8af6728",
+    "react-final-form": "^4.0.2",
     "react-native": "0.57.3",
     "react-redux": "^5.0.7",
     "redux": "^4.0.1",
