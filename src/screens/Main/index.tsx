@@ -6,9 +6,11 @@ import List from './List/index';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { createRequest } from 'common/data/todo/actions';
+import { reset } from 'redux-form';
 
 interface PropsFromDispatch {
-  createTodo: typeof createRequest
+  createTodo: typeof createRequest,
+  resetForm: typeof reset
 };
 
 class Main extends React.Component<PropsFromDispatch> {
@@ -18,6 +20,7 @@ class Main extends React.Component<PropsFromDispatch> {
         <Form 
           onSubmit={(values: any) => {
             this.props.createTodo(values.todoTask);
+            this.props.resetForm('todoForm');
           }}
         />
         <List />
@@ -27,7 +30,8 @@ class Main extends React.Component<PropsFromDispatch> {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  createTodo: (task: string) => dispatch(createRequest(task))
+  createTodo: (task: string) => dispatch(createRequest(task)),
+  resetForm: (formName: string) => dispatch(reset(formName))
 });
 
 export default connect(null, mapDispatchToProps)(Main);
