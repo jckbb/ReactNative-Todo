@@ -1,12 +1,20 @@
-import { StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
 interface Style {
-  fieldContainer: ViewStyle
+  fieldContainer: ViewStyle,
+  field: TextStyle
 };
 
 export default StyleSheet.create<Style>({
   fieldContainer: {
-    height: 55,
-    width: '100%'
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  field: {
+    flex: 1,
+    paddingLeft: 3,
+    margin: 1,
+    fontSize: 18
   }
 });
