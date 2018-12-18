@@ -4,5 +4,5 @@ export const createStrings = {
 
 export const createFormStrings = {
   createButtonText: 'add',
-  createTextBoxPlaceholderText: 'title'
+  createTextBoxPlaceholderText: 'title',
 };
