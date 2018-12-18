@@ -1,5 +1,5 @@
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
-import { primaryButtonTextColor } from 'res/colors';
+import { secondaryTextColor } from 'res/colors';
 
 interface Style {
   button: ViewStyle,
@@ -17,7 +17,7 @@ export default StyleSheet.create<Style>({
   },
   text: {
     fontSize: 18,
-    color: primaryButtonTextColor,
+    color: secondaryTextColor,
     fontWeight: '600'
   }
 });
