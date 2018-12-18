@@ -1,4 +1,5 @@
 import { StyleSheet, ViewStyle } from 'react-native';
+import { primaryBackgroundColor } from 'res/colors';
 
 interface Style {
   container: ViewStyle,
@@ -10,5 +11,6 @@ export default StyleSheet.create<Style>({
     paddingHorizontal: 10,
     paddingTop: 10,
     marginTop: 30,
+    backgroundColor: primaryBackgroundColor
   }
 });

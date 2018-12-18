@@ -1,4 +1,5 @@
 import { StyleSheet, TextStyle } from 'react-native';
+import { primaryWarningTextColor } from 'res/colors';
 
 interface Style {
   text: TextStyle
@@ -7,6 +8,6 @@ interface Style {
 export default StyleSheet.create<Style>({
   text: {
     fontSize: 14,
-    color: 'red'
+    color: primaryWarningTextColor
   }
 });
