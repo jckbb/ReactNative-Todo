@@ -3,19 +3,18 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { fetchAllRequest } from 'common/data/todo/actions';
 import { ApplicationState } from 'common/store';
+import { selectTodoIdsByTaskOrder } from 'common/data/todo/selectors';
 
 interface PropsFromDispatch {
   fetchAllTodos: typeof fetchAllRequest
 };
 
 interface PropsFromState {
-  allIds: string[],
-  loading: boolean
+  ids: string[]
 };
 
 interface InjectedProps {
-  data: string[],
-  loading: boolean
+  data: string[]
 };
 
 interface Props {
@@ -31,15 +30,13 @@ class TodoCollection extends React.Component<AllProps> {
 
   render() {
     return this.props.children({
-      data: this.props.allIds,
-      loading: this.props.loading
+      data: this.props.ids
     });
   }
 }
 
-const mapStateToProps = ({ todo }: ApplicationState) => ({
-  allIds: todo.allIds,
-  loading: todo.loading
+const mapStateToProps = (state: ApplicationState) => ({
+  ids:  selectTodoIdsByTaskOrder(state)
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

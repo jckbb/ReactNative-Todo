@@ -1,10 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { ApplicationState } from 'common/store';
-import { makeGetTodoById } from 'common/data/todo/selectors';
+import { selectTodoById } from 'common/data/todo/selectors';
 import { Todo as TodoDataModel } from 'common/data/todo/types';
 import { Dispatch } from 'redux';
 import { updateRequest } from 'common/data/todo/actions';
+
+interface PropsFromState {
+  data: TodoDataModel
+};
+
+interface PropsFromDispatch {
+  updateRequest: typeof updateRequest
+};
 
 interface InjectedProps {
   data: TodoDataModel,
@@ -16,41 +24,34 @@ interface Props {
   children(props: InjectedProps): JSX.Element
 }
 
-interface PropsFromDispatch {
-  updateRequest: typeof updateRequest
-};
-
-interface PropsFromState {
-  todo: TodoDataModel
-};
-
-type AllProps = Props & PropsFromState & PropsFromDispatch;
+type AllProps = Props & PropsFromDispatch & PropsFromState;
 
 class Todo extends React.Component<AllProps> {
   updateComplete() {
-    this.props.updateRequest(this.props.todo);
+    this.props.updateRequest(this.props.data);
   }
 
   render() {
     return this.props.children({
-      data: this.props.todo,
+      data: this.props.data,
       handleCompleteChange: this.updateComplete.bind(this)
     });
   }
 }
 
 const makeMapStateToProps = () => {
-  const getTodoById = makeGetTodoById();
+  const getTodoById = selectTodoById();
 
   return (state: ApplicationState, props: Props) => {
+
     return {
-      todo: getTodoById(state, props)
+      data: getTodoById(state, props)
     };
   }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  updateRequest: (todo: TodoDataModel) => dispatch(updateRequest(todo))
+  updateRequest: (data: TodoDataModel) => dispatch(updateRequest(data))
 });
 
 export default connect(makeMapStateToProps, mapDispatchToProps)(Todo);

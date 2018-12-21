@@ -14,7 +14,6 @@ class RadioButton extends React.Component<Props> {
   }
   
   render() {
-
     return(
       <TouchableWithoutFeedback
         onPress={this.handleChange.bind(this)} >
