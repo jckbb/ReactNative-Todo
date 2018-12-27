@@ -18,9 +18,12 @@ class Storage {
     await AsyncStorage.removeItem(`@Todo/${id}`);
   }
 
-  async getAllItems(): Promise<Todo[]> {
+  async getAllItems(): Promise<Todo[] | string> {
     return await AsyncStorage.getAllKeys()
       .then((keys: string[]) => {
+        if(keys.length == 0)
+          throw('todo does not exist');
+
         const fetchkeys = keys.filter((key) => {
           return key.startsWith('@Todo/');
         });
@@ -31,6 +34,10 @@ class Storage {
           return JSON.parse(response[1]);
         });
       });
+  }
+
+  async deleteAllItems(): Promise<void> {
+    await AsyncStorage.clear();
   }
 }
 
