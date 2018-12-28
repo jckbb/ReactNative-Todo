@@ -14,7 +14,8 @@ interface PropsFromState {
 };
 
 interface InjectedProps {
-  data: string[]
+  data: string[],
+  count: number
 };
 
 interface Props {
@@ -30,7 +31,8 @@ class TodoCollection extends React.Component<AllProps> {
 
   render() {
     return this.props.children({
-      data: this.props.ids
+      data: this.props.ids,
+      count: this.props.ids.length
     });
   }
 }
