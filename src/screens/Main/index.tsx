@@ -5,11 +5,13 @@ import Form from './Form';
 import List from './List/index';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { createRequest } from 'common/data/todo/actions';
+import { createRequest, deleteAllRequest } from 'common/data/todo/actions';
 import { reset } from 'redux-form';
+import ClearButton from 'common/components/ClearButton';
 
 interface PropsFromDispatch {
   createTodo: typeof createRequest,
+  clearAllTodos: typeof deleteAllRequest
   resetForm: typeof reset
 };
 
@@ -27,6 +29,9 @@ class Main extends React.Component<AllProps> {
         <Form 
           onSubmit={this.handleFormSubmit.bind(this)}
         />
+        <View style={styles.clearButtonContainer} >
+          <ClearButton handlePress={this.props.clearAllTodos} />
+        </View>
         <List />
       </View>
     );
@@ -35,7 +40,8 @@ class Main extends React.Component<AllProps> {
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   createTodo: (detail: string) => dispatch(createRequest(detail)),
-  resetForm: (formName: string) => dispatch(reset(formName))
+  resetForm: (formName: string) => dispatch(reset(formName)),
+  clearAllTodos: () => dispatch(deleteAllRequest())
 });
 
 export default connect(null, mapDispatchToProps)(Main);
