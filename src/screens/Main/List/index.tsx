@@ -3,6 +3,7 @@ import { View, FlatList, ListRenderItemInfo } from 'react-native';
 import styles from './styles';
 import TodoItem from './components/Item/index';
 import TodoCollection from 'common/components/Todos';
+import Empty from './components/Empty';
 
 interface Props {};
 
@@ -23,18 +24,26 @@ class TodoList extends React.Component<Props> {
     return(<View style={styles.divider} />);
   }
 
+  listEmptyComponent() {
+    return(
+      <Empty>{'Empty'}</Empty>
+    );
+  }
+
   render() {
     return(
       <TodoCollection>
         {(injectedProps) =>
           <View style={styles.listContainer} >
-
-            <FlatList
-              data={injectedProps.data}
-              renderItem={this.renderItem}
-              keyExtractor={this.keyExtractor}
-              ItemSeparatorComponent={this.itemSeparatorComponent}
-            />
+            { injectedProps.count > 0 
+              ? <FlatList
+                  data={injectedProps.data}
+                  renderItem={this.renderItem}
+                  keyExtractor={this.keyExtractor}
+                  ItemSeparatorComponent={this.itemSeparatorComponent}
+                />
+              : <Empty>{'Empty'}</Empty>
+            }
           </View>
         }
       </TodoCollection>
