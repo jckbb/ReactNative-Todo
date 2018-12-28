@@ -3,6 +3,7 @@ import { primaryBackgroundColor } from 'res/colors';
 
 interface Style {
   container: ViewStyle,
+  clearButtonContainer: ViewStyle
 };
 
 export default StyleSheet.create<Style>({
@@ -12,5 +13,9 @@ export default StyleSheet.create<Style>({
     paddingTop: 10,
     marginTop: 30,
     backgroundColor: primaryBackgroundColor
+  },
+  clearButtonContainer: {
+    marginTop: 10,
+    alignItems: 'center'
   }
 });
