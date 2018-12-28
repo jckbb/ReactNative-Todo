@@ -3,8 +3,9 @@ import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 import rootReducer from './rootReducer';
 import { rootSaga } from './rootSaga';
+import { ApplicationState } from '.';
 
-function configureStore(): Store {
+function configureStore(): Store<ApplicationState> {
   const sagaMiddleware = createSagaMiddleware();
 
   const store = createStore(rootReducer, compose(applyMiddleware(logger, sagaMiddleware)));

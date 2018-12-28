@@ -2,7 +2,7 @@ export interface Todo extends ApiResponse {
   id: string,
   createdAt: number,
   updatedAt: number,
-  title: string,
+  detail: string,
   complete: boolean
 }
 
@@ -27,7 +27,11 @@ export enum TodoActionTypes {
 
   DELETE_REQUEST = '@@todo/DELETE_REQUEST',
   DELETE_SUCCESS = '@@todo/DELETE_SUCCESS',
-  DELETE_ERROR = '@@todo/DELETE_ERROR'
+  DELETE_ERROR = '@@todo/DELETE_ERROR',
+
+  DELETE_ALL_REQUEST = '@@todo/DELETE_REQUEST',
+  DELETE_ALL_SUCCESS = '@@todo/DELETE_SUCCESS',
+  DELETE_ALL_ERROR = '@@todo/DELETE_ERROR'
 }
 
 export interface TodoState {

@@ -13,15 +13,19 @@ interface PropsFromDispatch {
   resetForm: typeof reset
 };
 
-class Main extends React.Component<PropsFromDispatch> {
+type AllProps = PropsFromDispatch;
+
+class Main extends React.Component<AllProps> {
+  handleFormSubmit(values: any) {
+    this.props.createTodo(values.todoTask);
+    this.props.resetForm('todoForm');
+  }
+
   render() {
     return(
       <View style={styles.container} >
         <Form 
-          onSubmit={(values: any) => {
-            this.props.createTodo(values.todoTask);
-            this.props.resetForm('todoForm');
-          }}
+          onSubmit={this.handleFormSubmit.bind(this)}
         />
         <List />
       </View>
@@ -30,7 +34,7 @@ class Main extends React.Component<PropsFromDispatch> {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  createTodo: (task: string) => dispatch(createRequest(task)),
+  createTodo: (detail: string) => dispatch(createRequest(detail)),
   resetForm: (formName: string) => dispatch(reset(formName))
 });
 
