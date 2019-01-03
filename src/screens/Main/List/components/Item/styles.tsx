@@ -7,9 +7,8 @@ type Style = {
 
 export default StyleSheet.create<Style>({
   container: {
+    flexDirection: 'row',
     height: todoList.itemHeight,
-    paddingHorizontal: 5,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
+    alignItems: 'center'
   }
 });
