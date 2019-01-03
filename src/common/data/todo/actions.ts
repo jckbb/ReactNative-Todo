@@ -27,6 +27,12 @@ export const deleteErrror = (message: string) => action(TodoActionTypes.DELETE_E
 export const deleteAllRequest = () => action(TodoActionTypes.DELETE_ALL_REQUEST);
 export const deleteAllSuccess = () => action(TodoActionTypes.DELETE_ALL_SUCCESS);
 
-export const updateRequest = (payload: Todo) => action(TodoActionTypes.UPDATE_REQUEST, payload);
+export const updateRequest = (payload: Todo) => action(TodoActionTypes.UPDATE_REQUEST, {
+  id: payload.id,
+  createdAt: payload.createdAt,
+  updatedAt: Date.now(),
+  detail: payload.detail,
+  complete: !payload.complete
+});
 export const updateSuccess = (data: Todo) => action(TodoActionTypes.UPDATE_SUCCESS, data);
 export const updateError = (message: string) => action(TodoActionTypes.UPDATE_ERROR, message);

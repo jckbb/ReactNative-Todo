@@ -1,24 +1,20 @@
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
-import { primaryTextColor } from 'res/colors';
 
 interface Style {
-  radioButtonContainer: ViewStyle,
-  todoText: TextStyle,
-  completedText: TextStyle
+  container: ViewStyle,
+  text: TextStyle
 };
 
 export default StyleSheet.create<Style>({
-  radioButtonContainer: {
+  container: {
     flex: 1,
-    width: '100%',
-    justifyContent: 'center'
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
   },
-  todoText: {
-    color: primaryTextColor,
-    fontSize: 21,
-    fontWeight: '600'
-  },
-  completedText: {
-    textDecorationLine: 'line-through'
+  text: {
+    marginLeft: 7,
+    fontSize: 20,
+    fontWeight: '400'
   }
 });

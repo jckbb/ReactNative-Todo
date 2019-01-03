@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
 import styles from './styles';
 import Todo from 'common/components/Todo';
 import RadioButton from 'common/components/RadioButton';
@@ -13,12 +13,13 @@ class TodoItem extends React.Component<Props> {
     return(
       <Todo id={this.props.id} >
         {(injectedProp) => (
-          <View style={styles.container} >
-            <RadioButton
-              complete={injectedProp.data.complete}
-              handleCompleteChange={injectedProp.handleCompleteChange}
-            >{injectedProp.data.title}</RadioButton>
-          </View>
+          <TouchableWithoutFeedback onPress={injectedProp.handleCompleteChange} >
+            <View style={styles.container}>
+              <RadioButton 
+                complete={injectedProp.data.complete}
+                detail={injectedProp.data.detail} />
+            </View>
+          </TouchableWithoutFeedback>
         )}
       </Todo>
     );

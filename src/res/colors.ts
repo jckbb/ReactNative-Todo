@@ -13,3 +13,7 @@ export const clearButtonColor = {
   background: 'rgba(0, 122, 255, 1.0)'
 };
 
+export const checkboxColor = {
+  circle: 'rgba(76, 217, 100, 1.0)'
+}
+
