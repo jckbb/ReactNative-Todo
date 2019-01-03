@@ -1,29 +1,20 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text } from 'react-native';
+import Checkbox from './components/CheckBox';
 import styles from './styles';
 
 interface Props {
   complete: boolean,
-  handleCompleteChange(): void
-  children: string
-};
+  detail: string
+}
 
 class RadioButton extends React.Component<Props> {
-  handleChange() {
-    this.props.handleCompleteChange();
-  }
-  
   render() {
     return(
-      <TouchableWithoutFeedback
-        onPress={this.handleChange.bind(this)} >
-        <View style={styles.radioButtonContainer} >
-          <Text 
-            style={[styles.todoText, this.props.complete && styles.completedText]} >
-            {this.props.children}
-          </Text>
-        </View>
-      </TouchableWithoutFeedback>
+      <View style={styles.container} >
+        <Checkbox complete={this.props.complete} />
+        <Text style={styles.text} >{this.props.detail}</Text>
+      </View>
     );
   }
 }
