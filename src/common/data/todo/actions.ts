@@ -7,8 +7,9 @@ export const fetchSuccess = (data: Todo) => action(TodoActionTypes.FETCH_SUCCESS
 export const fetchError = (message: string) => action(TodoActionTypes.FETCH_ERROR, message);
 
 export const fetchAllRequest = () => action(TodoActionTypes.FETCH_ALL_REQUEST);
-export const fetchAllSuccess = (data: Todo) => action(TodoActionTypes.FETCH_ALL_SUCCESS, data);
+export const fetchAllSuccess = () => action(TodoActionTypes.FETCH_ALL_SUCCESS);
 export const fetchAllError = (message: string) => action(TodoActionTypes.FETCH_ALL_ERROR, message);
+export const addTodo = (data: Todo) => action(TodoActionTypes.ADD_TODO,data);
 
 export const createRequest = (detail: string) => action(TodoActionTypes.CREATE_REQUEST, {
   id: generateUUID(),

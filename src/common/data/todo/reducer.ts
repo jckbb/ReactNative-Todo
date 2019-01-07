@@ -18,13 +18,20 @@ const reducer: Reducer<TodoState> = (state = initialState, action) => {
     case TodoActionTypes.DELETE_ALL_REQUEST:
       return {...state, loading: true};
     case TodoActionTypes.CREATE_SUCCESS:
-    case TodoActionTypes.FETCH_SUCCESS:
       return {
         ...state,
         loading: false,
         allIds: [...state.allIds, action.payload.id],
         byId: {...state.byId, [action.payload.id]: action.payload}
       };
+    case TodoActionTypes.ADD_TODO:
+      return {
+        ...state,
+        allIds: [...state.allIds, action.payload.id],
+        byId: {...state.byId, [action.payload.id]: action.payload}
+      };
+    case TodoActionTypes.FETCH_ALL_SUCCESS:
+      return {...state, loading: false}
     case TodoActionTypes.DELETE_ALL_SUCCESS:
       return {...state, loading: false, byId: {}, allIds: []}
     case TodoActionTypes.DELETE_SUCCESS:
