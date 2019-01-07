@@ -16,6 +16,7 @@ export enum TodoActionTypes {
   FETCH_ALL_REQUEST = '@@todo/FETCH_ALL_REQUEST',
   FETCH_ALL_SUCCESS = '@@todo/FETCH_ALL_SUCCESS',
   FETCH_ALL_ERROR = '@@todo/FETCH_ALL_ERROR',
+  ADD_TODO = '@@todo/ADD_TODO',
 
   CREATE_REQUEST = '@@todo/CREATE_REQUEST',
   CREATE_SUCCESS = '@@todo/CREATE_SUCCESS',
