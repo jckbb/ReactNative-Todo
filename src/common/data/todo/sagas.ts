@@ -17,8 +17,10 @@ function* fetchAllWorker({}: ReturnType<typeof TodoActions.fetchAllRequest>) {
 
   if(results)
     for(var result of results) {
-      yield put(TodoActions.fetchSuccess(result));
+      yield put(TodoActions.addTodo(result));
     }
+
+  yield put(TodoActions.fetchAllSuccess());
 }
 
 function* deleteWorker({ payload }: ReturnType<typeof TodoActions.deleteRequest>) {
