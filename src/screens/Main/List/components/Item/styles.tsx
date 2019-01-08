@@ -8,7 +8,7 @@ type Style = {
 export default StyleSheet.create<Style>({
   container: {
     flexDirection: 'row',
-    height: todoList.itemHeight,
+    minHeight: todoList.itemHeight,
     alignItems: 'center'
   }
 });
