@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { fetchAllRequest } from 'common/data/todo/actions';
 import { ApplicationState } from 'common/store';
-import { selectAllTodoByDate } from 'common/data/todo/selectors';
+import { selectAllTodoByDescDate } from 'common/data/todo/selectors';
 
 interface PropsFromDispatch {
   fetchAllTodos: typeof fetchAllRequest
@@ -38,7 +38,7 @@ class TodoCollection extends React.Component<AllProps> {
 }
 
 const mapStateToProps = (state: ApplicationState) => ({
-  ids:  selectAllTodoByDate(state)
+  ids:  selectAllTodoByDescDate(state)
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
