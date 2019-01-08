@@ -7,12 +7,13 @@ interface Style {
 
 export default StyleSheet.create<Style>({
   container: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center'
   },
   text: {
+    flex: 1,
+    flexWrap: 'wrap',
     marginLeft: 7,
     fontSize: 20,
     fontWeight: '400'
