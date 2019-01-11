@@ -7,11 +7,12 @@ import Error from '../Error';
 interface Props {
   name: "todoTask";
   component: typeof TextField;
+  onSubmit(): void
 };
 
 class TextField extends React.Component<WrappedFieldProps & Props> {
   render() {
-    const { input, meta: { submitFailed, valid } } = this.props;
+    const { onSubmit, input, meta: { submitFailed, valid } } = this.props;
 
     return(
       <View style={styles.fieldContainer} >
@@ -21,7 +22,7 @@ class TextField extends React.Component<WrappedFieldProps & Props> {
           onBlur={input.onBlur}
           placeholder={'todo task'}
           value={input.value}
-        />
+          onSubmitEditing={onSubmit} />
          {(submitFailed && !valid) && <Error>{'Required'}</Error>}
       </View>
     );

@@ -12,13 +12,15 @@ interface Props {
 
 class Form extends React.Component<InjectedFormProps<{}, Props> & Props> {
   render() {
+    const { handleSubmit, onSubmit } = this.props;
     return(
       <View style={styles.formContainer} >
         <Field          
           name={'todoTask'}
-          component={TextField} />
+          component={TextField}
+          onSubmit={handleSubmit(onSubmit)} />
         <Submit 
-          onSubmit={this.props.handleSubmit(this.props.onSubmit)} />
+          onSubmit={handleSubmit(onSubmit)} />
       </View>
     );
   }
