@@ -1,4 +1,4 @@
-import { StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet, ViewStyle, Platform } from 'react-native';
 import { primaryBackgroundColor } from 'res/colors';
 
 interface Style {
@@ -10,8 +10,7 @@ export default StyleSheet.create<Style>({
   container: {
     flex: 1,
     paddingHorizontal: 10,
-    paddingTop: 10,
-    marginTop: 30,
+    paddingTop: Platform.OS === 'ios' ? 40 : 10,
     backgroundColor: primaryBackgroundColor
   },
   clearButtonContainer: {
