@@ -3,8 +3,9 @@
     "baseUrl": "src",
     "paths": {
       "common/*": ["./common/*"],
-      "res/*": ["./res/*"]
+      "res/*": ["./res/*"],
     },
+    "esModuleInterop": true,
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
