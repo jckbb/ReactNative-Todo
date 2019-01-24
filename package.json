@@ -54,6 +54,10 @@
       "\\.snap$",
       "<rootDir>/node_modules/"
     ],
-    "cacheDirectory": ".jest/cache"
+    "cacheDirectory": ".jest/cache",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   }
 }
