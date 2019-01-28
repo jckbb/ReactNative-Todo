@@ -5,7 +5,7 @@ import styles from './styles';
 import Error from '../Error';
 
 interface Props {
-  name: "todoTask";
+  name: "detail";
   component: typeof TextField;
   onSubmit(): void
 };
@@ -20,7 +20,7 @@ class TextField extends React.Component<WrappedFieldProps & Props> {
           style={styles.field}
           onChangeText={input.onChange}
           onBlur={input.onBlur}
-          placeholder={'todo task'}
+          placeholder={'todo'}
           value={input.value}
           onSubmitEditing={onSubmit} />
          {(submitFailed && !valid) && <Error>{'Required'}</Error>}
