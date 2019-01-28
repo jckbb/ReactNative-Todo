@@ -8,6 +8,8 @@ import { Dispatch } from 'redux';
 import { createRequest, deleteAllRequest } from 'common/data/todo/actions';
 import { reset } from 'redux-form';
 import ClearButton from 'common/components/ClearButton';
+import { Todo } from 'common/data/todo/types';
+import { generateUUID } from 'common/utils/uuid';
 
 interface PropsFromDispatch {
   createTodo: typeof createRequest,
@@ -19,7 +21,16 @@ type AllProps = PropsFromDispatch;
 
 class Main extends React.Component<AllProps> {
   handleFormSubmit(values: any) {
-    this.props.createTodo(values.todoTask);
+    const currentTime = Date.now();
+    const newData: Todo = {
+      id: generateUUID(),
+      createdAt: currentTime,
+      updatedAt: currentTime,
+      detail: values.detail,
+      complete: false
+    };
+
+    this.props.createTodo(newData);
     this.props.resetForm('todoForm');
   }
 
@@ -39,7 +50,7 @@ class Main extends React.Component<AllProps> {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  createTodo: (detail: string) => dispatch(createRequest(detail)),
+  createTodo: (data: Todo) => dispatch(createRequest(data)),
   resetForm: (formName: string) => dispatch(reset(formName)),
   clearAllTodos: () => dispatch(deleteAllRequest())
 });
