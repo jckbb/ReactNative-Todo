@@ -28,7 +28,16 @@ type AllProps = Props & PropsFromDispatch & PropsFromState;
 
 class Todo extends React.Component<AllProps> {
   updateComplete() {
-    this.props.updateRequest(this.props.data);
+    const { data } = this.props;
+    const newData = {
+      id: data.id,
+      detail: data.detail,
+      createdAt: data.createdAt,
+      updatedAt: Date.now(),
+      complete: !data.complete
+    };
+
+    this.props.updateRequest(newData);
   }
 
   render() {
@@ -43,7 +52,6 @@ const makeMapStateToProps = () => {
   const getTodoById = selectTodoById();
 
   return (state: ApplicationState, props: Props) => {
-
     return {
       data: getTodoById(state, props)
     };
