@@ -4,7 +4,7 @@ import * as TodoActions from './actions';
 import Storage from '../../storage/index';
 import { generateUUID } from 'common/utils/uuid';
 
-function createTodoRecord(detail: string) {
+function createTodoRecord(detail: string): Todo {
   const currentTime = Date.now();
   return {
     id: generateUUID(),
