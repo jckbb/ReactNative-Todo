@@ -10,7 +10,7 @@ export const fetchAllSuccess = () => action(TodoActionTypes.FETCH_ALL_SUCCESS);
 export const fetchAllError = (message: string) => action(TodoActionTypes.FETCH_ALL_ERROR, message);
 export const addTodo = (data: Todo) => action(TodoActionTypes.ADD_TODO,data);
 
-export const createRequest = (data: Todo) => action(TodoActionTypes.CREATE_REQUEST, data);
+export const createRequest = (data: {detail: string}) => action(TodoActionTypes.CREATE_REQUEST, data);
 export const createSuccess = (payload: Todo) => action(TodoActionTypes.CREATE_SUCCESS, payload);
 export const createError = (message: string) => action(TodoActionTypes.CREATE_ERROR, message);
 

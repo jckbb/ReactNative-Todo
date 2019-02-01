@@ -1,11 +1,25 @@
 import { all, takeEvery, fork, put } from 'redux-saga/effects';
-import { TodoActionTypes } from './types';
+import { TodoActionTypes, Todo } from './types';
 import * as TodoActions from './actions';
 import Storage from '../../storage/index';
+import { generateUUID } from 'common/utils/uuid';
+
+function createTodoRecord(detail: string) {
+  const currentTime = Date.now();
+  return {
+    id: generateUUID(),
+    createdAt: currentTime,
+    updatedAt: currentTime,
+    detail: detail,
+    complete: false
+  }
+}
 
 function* createWorker({ payload }: ReturnType<typeof TodoActions.createRequest>) { 
-  yield Storage.setItem(payload);
-  yield put(TodoActions.createSuccess(payload));
+  const newData = createTodoRecord(payload.detail);
+  
+  yield Storage.setItem(newData);
+  yield put(TodoActions.createSuccess(newData));
 }
 
 function* fetchAllWorker({}: ReturnType<typeof TodoActions.fetchAllRequest>) {
