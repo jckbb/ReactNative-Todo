@@ -2,31 +2,28 @@ import * as actions from 'common/data/todo/actions';
 import { TodoActionTypes, Todo } from 'common/data/todo/types';
 
 describe('todo actions', () => {
+  const todo: Todo = {
+    id: 'test_id',
+    createdAt: 0,
+    updatedAt: 0,
+    detail: 'todo details',
+    complete: false
+  };
+
   describe('add todo actions', () => {
     it('should create an action request to add a todo', () => {
-      const todo: Todo = {
-        id: 'test_id',
-        createdAt: 0,
-        updatedAt: 0,
+      const data: {detail: string} = {
         detail: 'todo details',
-        complete: false
       };
       const expectedAction = {
         type: TodoActionTypes.CREATE_REQUEST,
-        payload: todo
+        payload: data 
       };
   
-      expect(actions.createRequest(todo)).toEqual(expectedAction);
+      expect(actions.createRequest(data)).toEqual(expectedAction);
     });
 
     it('should create an action success to add a todo', () => {
-      const todo: Todo = {
-        id: 'test_id',
-        createdAt: 0,
-        updatedAt: 0,
-        detail: 'todo details',
-        complete: false
-      };
       const expectedAction = {
         type: TodoActionTypes.CREATE_SUCCESS,
         payload: todo
