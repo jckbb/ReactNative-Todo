@@ -39,7 +39,7 @@ class Main extends React.Component<AllProps> {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  createTodo: (detail: string) => dispatch(createRequest(detail)),
+  createTodo: (data: {detail: string}) => dispatch(createRequest(data)),
   resetForm: (formName: string) => dispatch(reset(formName)),
   clearAllTodos: () => dispatch(deleteAllRequest())
 });
