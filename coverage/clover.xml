@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1549037764243" clover="3.2.0">
-  <project timestamp="1549037764244" name="All files">
-    <metrics statements="55" coveredstatements="52" conditionals="19" coveredconditionals="15" methods="20" coveredmethods="16" elements="94" coveredelements="83" complexity="0" loc="55" ncloc="55" packages="1" files="3" classes="3">
+<coverage generated="1549399442193" clover="3.2.0">
+  <project timestamp="1549399442193" name="All files">
+    <metrics statements="67" coveredstatements="59" conditionals="23" coveredconditionals="15" methods="27" coveredmethods="22" elements="117" coveredelements="96" complexity="0" loc="67" ncloc="67" packages="1" files="4" classes="4">
       <file name="actions.ts" path="/Users/joejoeb/Projects/ReactNative/ReactNative-Todo/src/common/data/todo/actions.ts">
         <metrics statements="20" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="18" coveredmethods="14"/>
         <line num="1" count="1" type="stmt"/>
@@ -42,6 +42,21 @@
         <line num="55" count="0" type="stmt"/>
         <line num="57" count="1" type="stmt"/>
         <line num="61" count="1" type="stmt"/>
+      </file>
+      <file name="selectors.ts" path="/Users/joejoeb/Projects/ReactNative/ReactNative-Todo/src/common/data/todo/selectors.ts">
+        <metrics statements="12" coveredstatements="7" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="6"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="14" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
       </file>
       <file name="types.ts" path="/Users/joejoeb/Projects/ReactNative/ReactNative-Todo/src/common/data/todo/types.ts">
         <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
