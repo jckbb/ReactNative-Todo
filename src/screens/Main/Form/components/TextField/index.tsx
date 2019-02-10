@@ -5,14 +5,13 @@ import styles from './styles';
 import Error from '../Error';
 
 interface Props {
-  name: "detail";
-  component: typeof TextField;
-  onSubmit(): void
+  name: "detail",
+  component: typeof TextField
 };
 
 class TextField extends React.Component<WrappedFieldProps & Props> {
   render() {
-    const { onSubmit, input, meta: { submitFailed, valid } } = this.props;
+    const { input, meta: { submitFailed, valid, error } } = this.props;
 
     return(
       <View style={styles.fieldContainer} >
@@ -21,9 +20,8 @@ class TextField extends React.Component<WrappedFieldProps & Props> {
           onChangeText={input.onChange}
           onBlur={input.onBlur}
           placeholder={'todo'}
-          value={input.value}
-          onSubmitEditing={onSubmit} />
-         {(submitFailed && !valid) && <Error>{'Required'}</Error>}
+          value={input.value} />
+         {(submitFailed && !valid) && <Error>{error}</Error>}
       </View>
     );
   }

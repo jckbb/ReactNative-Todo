@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { reduxForm, Field, InjectedFormProps } from 'redux-form';
 import TextField from './components/TextField';
-import { validate } from 'common/utils/validators';
+import { validateTodoForm } from 'common/utils/validators';
 import Submit from './components/Submit';
 import styles from './styles';
 
@@ -18,8 +18,7 @@ class Form extends React.Component<InjectedFormProps<{}, Props> & Props> {
       <View style={styles.formContainer} >
         <Field
           name={'detail'}
-          component={TextField}
-          onSubmit={handleSubmit(onSubmit)} />
+          component={TextField} />
         <Submit
           onSubmit={handleSubmit(onSubmit)} />
       </View>
@@ -29,5 +28,5 @@ class Form extends React.Component<InjectedFormProps<{}, Props> & Props> {
 
 export default reduxForm<{}, Props>({
   form: 'todoForm',
-  validate
+  validate: validateTodoForm
 })(Form);
