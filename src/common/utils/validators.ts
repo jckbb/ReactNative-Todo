@@ -1,9 +1,8 @@
-export const validate = (values: any) => {
-  const errors = <{todoTask: string}>{todoTask: ''};
+export const validateTodoForm = (values: any) => {
+  let errors = {};
 
-  if(!values.todoTask) {
-    errors.todoTask = 'Required';
-  }
+  if(!values.detail)
+    errors = {detail: 'Required'};
 
   return errors;
 }
